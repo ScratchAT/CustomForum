@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Forum
 // @namespace    https://github.com/ScratchAT/CustomForum/
-// @version      0.1
+// @version      0.2
 // @description  try to take over the world!
 // @author       herohamp
 // @match        https://scratch.mit.edu/*
