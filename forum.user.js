@@ -3,6 +3,7 @@
 // @namespace    https://github.com/ScratchAT/CustomForum/
 // @version      0.2
 // @description  try to take over the world!
+// @updateURL    https://github.com/ScratchAT/CustomForum/raw/master/forum.user.js
 // @author       herohamp
 // @match        https://scratch.mit.edu/*
 // @grant        none
