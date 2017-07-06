@@ -13,4 +13,8 @@
     if (window.location.pathname == "/discuss/-1/"){
         window.location = "/discuss/31/?atprivatesupercoolsohaha";
     }
+    if (window.location.pathname+window.location.search == "/discuss/31/?atprivatesupercoolsohaha"){
+        history.pushState(stateObj, "The Secret forum!", "/discuss/-1/");
+        document.title = "The Secret Forum!"
+    }
 })();
