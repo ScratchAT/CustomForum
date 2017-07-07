@@ -5,9 +5,9 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
-  next();
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next();
 });
 
 //temp
@@ -33,10 +33,8 @@ const topics = [{
             latestdate:"14993532352",
             posts: []
 
-        }]
-
-app.get('/', function (req, res) {
-  res.redirect('https://scratch.mit.edu/discuss/-1/');
+app.get('/', function(req, res) {
+    res.redirect('https://scratch.mit.edu/discuss/-1/');
 })
 
 app.get('/topics', function (req, res) {
