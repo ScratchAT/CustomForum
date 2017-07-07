@@ -53,7 +53,6 @@
     }
     
         if (window.location.pathname == "/discuss/-1/" || window.location.pathname == "/discuss/-1") {
-        Whoops! Our server is Scratch'ing its head
             document.body.innerHTML = document.body.innerHTML.replace('<h1>Whoops! Our server is Scratch'ing its head</h1>', '<h1>Redirecting to the secret forum</h1>');
             document.body.innerHTML = document.body.innerHTML.replace('404','please wait...');
             document.body.innerHTML = document.body.innerHTML.replace('We couldn't find the page you're looking for. Check to make sure you've typed the url correctly.','');
