@@ -26,7 +26,7 @@
         xmlHttp.send(null);
         return xmlHttp.responseText;
     }
-    if (window.location.pathname == "/discuss/-1/") {
+    if (window.location.pathname == "/discuss/-1/" || window.location.pathname == "/discuss/-1") {
         window.location = "/discuss/31/?atprivatesupercoolsohaha";
     }
 
@@ -37,6 +37,8 @@
     if ((window.location.pathname + window.location.search).replace("/discuss/topic/269455/?atprivatesupercoolsohaha", "") != (window.location.pathname + window.location.search)) {
 
         var id = getParameterByName("postid");
+
+        var replaced = $("body").html().replace(/Advanced Topics/g, 'The Secret Forum');
 
         history.pushState(null, "The Secret forum!", "/discuss/-1/topic/" + id);
         $(".blockpost.roweven.firstpost").remove();

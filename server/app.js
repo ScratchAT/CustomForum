@@ -14,7 +14,7 @@ app.use(function(req, res, next) {
 
 //temp
 const topics = [{
-    link: "/discuss/-1/topic/0",
+    link: "/discuss/topic/269455/?atprivatesupercoolsohaha&postid=0",
     postName: "Welcome",
     reps: "1",
     views: "99999",
@@ -24,7 +24,7 @@ const topics = [{
     latestdate: "149935323543"
 
 }, {
-    link: "/discuss/-1/topic/1",
+    link: "/discuss/topic/269455/?atprivatesupercoolsohaha&postid=1",
     postName: "Welcome2",
     reps: "1",
     views: "99999",
