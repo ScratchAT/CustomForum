@@ -21,8 +21,7 @@ const topics = [{
     owner: "DatOneLefty",
     date: "1499353235",
     latestowner: "herohamp",
-    latestdate: "149935323543",
-    posts: []
+    latestdate: "149935323543"
 
 }, {
     link: "/discuss/-1/topic/1",
@@ -32,15 +31,36 @@ const topics = [{
     owner: "DatOneLefty",
     date: "1499353235",
     latestowner: "herohamp",
-    latestdate: "14993532352",
-    posts: []
+    latestdate: "14993532352"
 }];
+
+const posts = [
+    [{
+        number: 1,
+        time: 1499391922,
+        username: "herohamp",
+        text: "HELLO! Welcome to post number 0"
+    }],
+    [{
+        number: 1,
+        time: 1499391922,
+        username: "herohamp",
+        text: "HELLO! Welcome to post number 1"
+    }]
+]
 app.get('/', function(req, res) {
     res.redirect('https://scratch.mit.edu/discuss/-1/');
 })
 
 app.get('/topics', function(req, res) {
     res.send(JSON.stringify(topics));
+})
+
+app.get('/posts/:id', function(req, res) {
+    try {
+        res.send(JSON.stringify(posts[req.params.id]));
+    }
+    catch (err) {}
 })
 
 app.post('/:topic', function(req, res) {

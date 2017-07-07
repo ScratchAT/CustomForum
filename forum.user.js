@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ForumTesting
 // @namespace    https://github.com/ScratchAT/CustomForum/
-// @version      0.8
+// @version      0.9
 // @description  try to take over the world!
 // @updateURL    https://github.com/ScratchAT/CustomForum/raw/master/forum.user.js
 // @author       herohamp
@@ -35,14 +35,19 @@
     }
 
     if ((window.location.pathname + window.location.search).replace("/discuss/topic/269455/?atprivatesupercoolsohaha", "") != (window.location.pathname + window.location.search)) {
+
+        var id = getParameterByName("postid");
+
+        history.pushState(null, "The Secret forum!", "/discuss/-1/topic/" + id);
         $(".blockpost.roweven.firstpost").remove();
-        info = {
-            number: 7,
-            time: 1499391922,
-            username: "herohamp",
-            text: "HELLO!"
+        var posts = JSON.parse(httpGet("https://f1-scratch-herohamp.c9users.io/posts/" + id));
+
+        for (i in posts) {
+
+            var info = posts[i];
+
+            $(".linkst").after(`<div id="p2714321"class="blockpost roweven firstpost"><a name="post-2714321"></a><div class="box"><div class="box-head"><span class="conr">${info.number}</span><a href="#">${info.time}</a></div><div class="box-content"><div class="postleft"><dl><dt><a class="black username"href="/users/${info.username}/">${info.username}</a></dt><dd class="postavatar"><a href="/users/${info.username}/"><img src="https://placeholdit.imgix.net/~text?txtsize=25&txt=No%20Image%20Support&w=90&h=90"width="90"height="90"></a></dd>Super ATer of Awesomeness<br></dl></div><div class="postright"><h3>The AT GitHub</h3><div class="postmsg"><div class="post_body_html">${info.text}</div></div></div><div class="clearer"></div><div class="postfootleft"></div><div class="postfootright"><ul><li class="postquote">|<a onclick="return copy_paste('p2714321');"href="#reply"title="Insert a quotation of this post in your reply.">Quote</a></li></ul></div></div></div></div>`);
         }
-        $(".linkst").after(`<div id="p2714321"class="blockpost roweven firstpost"><a name="post-2714321"></a><div class="box"><div class="box-head"><span class="conr">${info.number}</span><a href="#">${info.time}</a></div><div class="box-content"><div class="postleft"><dl><dt><a class="black username"href="/users/${info.username}/">${info.username}</a></dt><dd class="postavatar"><a href="/users/${info.username}/"><img src="https://placeholdit.imgix.net/~text?txtsize=25&txt=No%20Image%20Support&w=90&h=90"width="90"height="90"></a></dd>Super ATer of Awesomeness<br></dl></div><div class="postright"><h3>The AT GitHub</h3><div class="postmsg"><div class="post_body_html">${info.text}</div></div></div><div class="clearer"></div><div class="postfootleft"></div><div class="postfootright"><ul><li class="postquote">|<a onclick="return copy_paste('p2714321');"href="#reply"title="Insert a quotation of this post in your reply.">Quote</a></li></ul></div></div></div></div>`);
     }
 
     if (window.location.pathname + window.location.search == "/discuss/31/?atprivatesupercoolsohaha") {
