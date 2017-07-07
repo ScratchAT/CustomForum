@@ -14,7 +14,7 @@ app.use(function(req, res, next) {
 
 //temp
 const topics = [{
-    link: "/discuss/-1/post/1",
+    link: "/discuss/-1/topic/0",
     postName: "Welcome",
     reps: "1",
     views: "99999",
@@ -25,7 +25,7 @@ const topics = [{
     posts: []
 
 }, {
-    link: "/discuss/-1/post/1",
+    link: "/discuss/-1/topic/1",
     postName: "Welcome2",
     reps: "1",
     views: "99999",
