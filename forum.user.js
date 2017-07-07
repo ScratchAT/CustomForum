@@ -51,7 +51,14 @@
             $(".linkst").after(`<div id="p2714321"class="blockpost roweven firstpost"><a name="post-2714321"></a><div class="box"><div class="box-head"><span class="conr">${info.number}</span><a href="#">${info.time}</a></div><div class="box-content"><div class="postleft"><dl><dt><a class="black username"href="/users/${info.username}/">${info.username}</a></dt><dd class="postavatar"><a href="/users/${info.username}/"><img src="https://placeholdit.imgix.net/~text?txtsize=25&txt=No%20Image%20Support&w=90&h=90"width="90"height="90"></a></dd>Super ATer of Awesomeness<br></dl></div><div class="postright"><h3>The AT GitHub</h3><div class="postmsg"><div class="post_body_html">${info.text}</div></div></div><div class="clearer"></div><div class="postfootleft"></div><div class="postfootright"><ul><li class="postquote">|<a onclick="return copy_paste('p2714321');"href="#reply"title="Insert a quotation of this post in your reply.">Quote</a></li></ul></div></div></div></div>`);
         }
     }
+    
+        if (window.location.pathname == "/discuss/-1/" || window.location.pathname == "/discuss/-1") {
+            document.body.innerHTML = document.body.innerHTML.replace('<h1>Whoops! Our server is Scratch'ing its head</h1>', '<h1>Redirecting to the secret forum</h1>');
+            document.body.innerHTML = document.body.innerHTML.replace('404','please wait...');
+            document.body.innerHTML = document.body.innerHTML.replace('We couldn't find the page you're looking for. Check to make sure you've typed the url correctly.','');
+            document.body.innerHTML = document.body.innerHTML.replace('You can try searching for what you're looking for here:','');
 
+    }
     if (window.location.pathname + window.location.search == "/discuss/31/?atprivatesupercoolsohaha") {
         history.pushState(null, "The Secret forum!", "/discuss/-1/");
         document.title = "The Secret Forum!";
