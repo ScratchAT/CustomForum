@@ -53,7 +53,7 @@
         $("body").html(replaced);
         $(".pagination").remove();
 
-        var posts = JSON.parse(httpGet("https://f1-scratch-herohamp.c9users.io/posts"));
+        var posts = JSON.parse(httpGet("https://f1-scratch-herohamp.c9users.io/topics"));
 
 
 
