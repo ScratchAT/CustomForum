@@ -47,7 +47,7 @@ app.post('/:topic', function(req, res) {
     topics[req.params.topic].posts += req.body.post;
     res.send("Post send");
 })
-
-app.listen(8080, function() {
-    console.log('Example app listening on port 3000!')
+var port = 8080;
+app.listen(port, function() {
+    console.log('Example app listening on port ' + port + '!')
 })
