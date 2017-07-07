@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ForumTesting
 // @namespace    https://github.com/ScratchAT/CustomForum/
-// @version      0.61
+// @version      0.7
 // @description  try to take over the world!
 // @updateURL    https://github.com/ScratchAT/CustomForum/raw/master/forum.user.js
 // @author       herohamp
