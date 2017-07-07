@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ForumTesting
 // @namespace    https://github.com/ScratchAT/CustomForum/
-// @version      0.6
+// @version      0.61
 // @description  try to take over the world!
 // @updateURL    https://github.com/ScratchAT/CustomForum/raw/master/forum.user.js
 // @author       herohamp
@@ -30,9 +30,11 @@
         
         var posts = JSON.parse(httpGet("https://f1-scratch-herohamp.c9users.io/posts"));
         
+        
+        
         for (var i in posts){
             var info = posts[i];
-            $("tbody").append(`<tr><td class="tcl"><div class="intd"><div class="nosize"></div></div><div class="inew"><div class="nosize"></div></div><div class="tclcon"><h3><a href="${info.links}">${info.postName}</a></h3><span class="byuser"> by ${info.owner}</span></div></td><td class="tc2">${info.reps}</td><td class="tc3">${info.views}</td><td class="tcr"><a href="${info.links}">${info.latestdate}</a> <span class="byuser">by ${info.latestowner}</span></td></tr>`);
+            $("tbody").append(`<tr><td class="tcl"><div class="intd"><div class="nosize"></div></div><div class="inew"><div class="nosize"></div></div><div class="tclcon"><h3><a href="${info.link}">${info.postName}</a></h3><span class="byuser"> by ${info.owner}</span></div></td><td class="tc2">${info.reps}</td><td class="tc3">${info.views}</td><td class="tcr"><a href="${info.links}">${info.latestdate}</a> <span class="byuser">by ${info.latestowner}</span></td></tr>`);
 
         }
         
