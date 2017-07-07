@@ -30,8 +30,8 @@
         window.location = "/discuss/31/?atprivatesupercoolsohaha";
     }
 
-    if (window.location.pathname.replace("/discuss/-1/post/") != window.location.pathname) {
-        window.location = "https://scratch.mit.edu/discuss/topic/269455/?atprivatesupercoolsohaha&postid=" + window.location.pathname.replace("/discuss/-1/post/", "");
+    if (window.location.pathname.replace("/discuss/-1/topic/") != window.location.pathname) {
+        window.location = "https://scratch.mit.edu/discuss/topic/269455/?atprivatesupercoolsohaha&postid=" + window.location.pathname.replace("/discuss/-1/topic/", "");
     }
 
     if ((window.location.pathname + window.location.search).replace("/discuss/topic/269455/?atprivatesupercoolsohaha", "") != (window.location.pathname + window.location.search)) {
@@ -53,12 +53,12 @@
         $("body").html(replaced);
         $(".pagination").remove();
 
-        var posts = JSON.parse(httpGet("https://f1-scratch-herohamp.c9users.io/topics"));
+        var topics = JSON.parse(httpGet("https://f1-scratch-herohamp.c9users.io/topics"));
 
 
 
-        for (var i in posts) {
-            var info = posts[i];
+        for (var i in topics) {
+            var info = topics[i];
             $("tbody").append(`<tr><td class="tcl"><div class="intd"><div class="nosize"></div></div><div class="inew"><div class="nosize"></div></div><div class="tclcon"><h3><a href="${info.link}">${info.postName}</a></h3><span class="byuser"> by ${info.owner}</span></div></td><td class="tc2">${info.reps}</td><td class="tc3">${info.views}</td><td class="tcr"><a href="${info.links}">${info.latestdate}</a> <span class="byuser">by ${info.latestowner}</span></td></tr>`);
 
         }
