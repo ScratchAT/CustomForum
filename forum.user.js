@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ForumTesting
 // @namespace    https://github.com/ScratchAT/CustomForum/
-// @version      0.9
+// @version      1.0
 // @description  try to take over the world!
 // @updateURL    https://github.com/ScratchAT/CustomForum/raw/master/forum.user.js
 // @author       herohamp
@@ -10,6 +10,8 @@
 // ==/UserScript==
 
 (function() {
+    var url = "https://cf-1.ireallylike.science/";
+
     function getParameterByName(name, url) {
         if (!url) url = window.location.href;
         name = name.replace(/[\[\]]/g, "\\$&");
@@ -42,9 +44,9 @@
 
         history.pushState(null, "The Secret forum!", "/discuss/-1/topic/" + id);
         $(".blockpost.roweven.firstpost").remove();
-        var posts = JSON.parse(httpGet("https://f1-scratch-herohamp.c9users.io/posts/" + id));
+        var posts = JSON.parse(httpGet(url+"posts/" + id));
 
-        for (i in posts) {
+        for (var i = posts.length - 1; i >= 0; --i) {
 
             var info = posts[i];
 
@@ -68,7 +70,7 @@
         $("body").html(replaced);
         $(".pagination").remove();
 
-        var topics = JSON.parse(httpGet("https://f1-scratch-herohamp.c9users.io/topics"));
+        var topics = JSON.parse(httpGet(url+"topics"));
 
 
 
