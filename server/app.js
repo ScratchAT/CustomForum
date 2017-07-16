@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
+const tokens = require('./tokens.json')
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -13,7 +14,7 @@ app.use(function(req, res, next) {
 });
 
 //temp
-const topics = [{
+var topics = [{
     link: "/discuss/topic/269455/?atprivatesupercoolsohaha&postid=0",
     postName: "Welcome",
     reps: "1",
@@ -34,7 +35,7 @@ const topics = [{
     latestdate: "14993532352"
 }];
 
-const posts = [
+var posts = [
     [{
         number: 1,
         time: 1499391922,
@@ -69,7 +70,26 @@ app.get('/posts/:id', function(req, res) {
 })
 
 app.post('/makeTopic/', function(req, res) {
-    res.send(JSON.stringify(req.body));
+
+    if (tokens[req.body.csrfmiddlewaretoken] != null) {
+        topics.push({
+            link: "/discuss/topic/269455/?atprivatesupercoolsohaha&postid=" + topics.length,
+            postName: req.body.name,
+            reps: "1",
+            views: "99999",
+            owner: tokens[req.body.csrfmiddlewaretoken],
+            date: "1499353235",
+            latestowner: tokens[req.body.csrfmiddlewaretoken],
+            latestdate: "149935323543"
+
+        })
+        res.send(req.body);
+    }
+    else {
+        res.send("-1token is either missing or invalid");
+    }
+
+
 })
 
 var port = 5006;

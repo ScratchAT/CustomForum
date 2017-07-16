@@ -45,12 +45,12 @@
         var replaced = $("body").html().replace(/Advanced Topics/g, 'The Secret Forum');
 
         history.pushState(null, "The Secret forum!", "/discuss/-1/topic/add/");
-        
-        $("#post").attr('enctype',"");
-        
-        $("#post").attr('action',"http://cf-1.ireallylike.science/makeTopic/");
-        
-        $("#post input[name='csrfmiddlewaretoken']").val("Nope");
+
+        $("#post").attr('enctype', "");
+
+        $("#post").attr('action', "http://cf-1.ireallylike.science/makeTopic/");
+
+        $("#post input[name='csrfmiddlewaretoken']").val(localStorage["-1token"]);
 
 
     }
