@@ -28,14 +28,30 @@
         xmlHttp.send(null);
         return xmlHttp.responseText;
     }
+
+    if (window.location.pathname == "/discuss/-1/topic/add/") {
+        window.location = "/discuss/31/topic/add/?atprivatesupercoolsohaha";
+    }
+
     if (window.location.pathname == "/discuss/-1/" || window.location.pathname == "/discuss/-1") {
         window.location = "/discuss/31/?atprivatesupercoolsohaha";
     }
 
-    if (window.location.pathname.replace("/discuss/-1/topic/") != window.location.pathname) {
+    if (window.location.pathname.replace("/discuss/-1/topic/") != window.location.pathname && window.location.pathname != "/discuss/-1/topic/add/") {
         window.location = "https://scratch.mit.edu/discuss/topic/269455/?atprivatesupercoolsohaha&postid=" + window.location.pathname.replace("/discuss/-1/topic/", "");
     }
 
+    if ((window.location.pathname + window.location.search).replace("/discuss/31/topic/add/?atprivatesupercoolsohaha", "") != (window.location.pathname + window.location.search)) {
+        var replaced = $("body").html().replace(/Advanced Topics/g, 'The Secret Forum');
+
+        history.pushState(null, "The Secret forum!", "/discuss/-1/topic/add/");
+        
+        $("#post").attr('enctype',"");
+        
+        $("#post").attr('action',"http://cf-1.ireallylike.science/makeTopic/");
+
+
+    }
     if ((window.location.pathname + window.location.search).replace("/discuss/topic/269455/?atprivatesupercoolsohaha", "") != (window.location.pathname + window.location.search)) {
 
         var id = getParameterByName("postid");
@@ -44,7 +60,7 @@
 
         history.pushState(null, "The Secret forum!", "/discuss/-1/topic/" + id);
         $(".blockpost.roweven.firstpost").remove();
-        var posts = JSON.parse(httpGet(url+"posts/" + id));
+        var posts = JSON.parse(httpGet(url + "posts/" + id));
 
         for (var i = posts.length - 1; i >= 0; --i) {
 
@@ -63,6 +79,9 @@
     }
     */
     if (window.location.pathname + window.location.search == "/discuss/31/?atprivatesupercoolsohaha") {
+
+        $(".small.button.new_topic").attr('href', "/discuss/31/topic/add/?atprivatesupercoolsohaha");
+
         history.pushState(null, "The Secret forum!", "/discuss/-1/");
         document.title = "The Secret Forum!";
         $("tbody")[0].innerHTML = "";
@@ -70,7 +89,7 @@
         $("body").html(replaced);
         $(".pagination").remove();
 
-        var topics = JSON.parse(httpGet(url+"topics"));
+        var topics = JSON.parse(httpGet(url + "topics"));
 
 
 

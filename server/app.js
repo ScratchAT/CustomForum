@@ -2,10 +2,10 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 
-app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
-    extended: false
-}))
+    extended: true
+}));
+
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
@@ -46,6 +46,11 @@ const posts = [
         time: 1499391922,
         username: "herohamp",
         text: "HELLO! Welcome to post number 1"
+    }, {
+        number: 1,
+        time: 1499391922,
+        username: "herohamp",
+        text: "COMMENT"
     }]
 ]
 app.get('/', function(req, res) {
@@ -63,11 +68,11 @@ app.get('/posts/:id', function(req, res) {
     catch (err) {}
 })
 
-app.post('/:topic', function(req, res) {
-    topics[req.params.topic].posts += req.body.post;
-    res.send("Post send");
+app.post('/makeTopic/', function(req, res) {
+    res.send(JSON.stringify(req.body));
 })
-var port = 8080;
+
+var port = 5006;
 app.listen(port, function() {
     console.log('Example app listening on port ' + port + '!')
 })
