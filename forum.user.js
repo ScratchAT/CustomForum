@@ -49,6 +49,8 @@
         $("#post").attr('enctype',"");
         
         $("#post").attr('action',"http://cf-1.ireallylike.science/makeTopic/");
+        
+        $("#post input[name='csrfmiddlewaretoken']").val("Nope");
 
 
     }
