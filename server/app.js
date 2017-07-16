@@ -83,6 +83,14 @@ app.post('/makeTopic/', function(req, res) {
             latestdate: "149935323543"
 
         })
+        
+        posts.push([{
+        number: 1,
+        time: 1499391922,
+        username: tokens[req.body.csrfmiddlewaretoken],
+        text: req.body.body
+    }])
+        
         res.send(req.body);
     }
     else {
